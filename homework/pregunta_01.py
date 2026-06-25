@@ -62,47 +62,5 @@ def pregunta_01():
     #return len(dic["cluster"])
     #return len(dic["cantidad_de_palabras_clave"])
 
-
-"""    with open('files/input/clusters_report.txt', 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-
-    data = []
-    for line in lines[4:]:
-        line = line.rstrip()
-        if not line.strip():
-            continue
-        
-        match = re.match(r'^\s+(\d+)\s+(\d+)\s+(\d+,\d+)\s+%(.*)', line)
-        
-        if match:
-            cluster, cant, porc, keywords = match.groups()
-            porc = float(porc.replace(',', '.'))
-            data.append([int(cluster), int(cant), porc, keywords.strip()])
-        else:
-            data[-1][3] += " " + line.strip()
-
-    df = pd.DataFrame(data, columns=[
-        'cluster', 
-        'cantidad_de_palabras_clave', 
-        'porcentaje_de_palabras_clave', 
-        'principales_palabras_clave'
-    ])
-
-    def clean_keywords(text):
-        # 1. Quitar el punto final si existe (antes de dividir)
-        text = text.rstrip('.')
-        # 2. Normalizar espacios: reemplazar saltos o múltiples espacios por uno solo
-        text = re.sub(r'\s+', ' ', text)
-        # 3. Asegurar que las comas tengan un espacio después
-        text = text.replace(',', ', ')
-        # 4. Corregir posibles dobles espacios generados por el reemplazo
-        text = re.sub(r'\s+', ' ', text)
-        # 5. Dividir, limpiar cada palabra y unir con ", "
-        return ", ".join([p.strip() for p in text.split(',') if p.strip()])
-
-    df['principales_palabras_clave'] = df['principales_palabras_clave'].apply(clean_keywords)
-    
-    return df"""
-
 #print(pregunta_01().principales_palabras_clave.to_list()[0])
-print(pregunta_01())
+print(pregunta_01().head())
